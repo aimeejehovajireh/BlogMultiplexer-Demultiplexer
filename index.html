@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog Teknik Digital - Multiplexer & Demultiplexer</title>
+    <style>
+      /* CSS UNTUK TAMPILAN MODERN NUANSA PINK */
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #fff0f6; /* Pink Sangat Muda */
+        color: #4a4a4a;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 30px auto;
+        background: #fff;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(255, 105, 180, 0.15);
+      }
+
+      header {
+        text-align: center;
+        border-bottom: 3px solid #ff85a2; /* Pink Cerah */
+        margin-bottom: 40px;
+        padding-bottom: 20px;
+      }
+
+      h1 {
+        color: #d63384;
+        margin: 0;
+        font-size: 2.8em;
+      }
+      header p {
+        color: #ff4d6d;
+        font-weight: bold;
+      }
+
+      /* LOGO/GAMBAR UTAMA */
+      .logo-box {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .logo-box img {
+        width: 550px;
+        max-width: 100%;
+        height: auto;
+        border-radius: 15px;
+        transition: transform 0.3s;
+        box-shadow: 0 4px 15px rgba(214, 51, 132, 0.2);
+      }
+
+      .logo-box img:hover {
+        transform: scale(1.02);
+      }
+
+      /* NAVIGASI */
+      nav {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-bottom: 40px;
+        background: #ffe3ed;
+        padding: 15px;
+        border-radius: 50px;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #d63384;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: 0.3s;
+      }
+
+      nav a:hover {
+        color: #ff4d6d;
+      }
+
+      /* MATERI PENJELASAN */
+      .section {
+        margin-bottom: 50px;
+      }
+      h2 {
+        color: #8338ec; /* Ungu sebagai aksen pink */
+        border-left: 6px solid #ff4d6d;
+        padding-left: 15px;
+        margin-bottom: 20px;
+      }
+
+      .text-justify {
+        text-align: justify;
+        text-justify: inter-word;
+      }
+
+      h3 {
+        color: #c9184a;
+        margin-top: 25px;
+      }
+
+      .content-box {
+        background: #fff5f8;
+        padding: 25px;
+        border-radius: 12px;
+        border: 1px solid #ffccd5;
+      }
+
+      /* TABEL STYLE */
+      table {
+        width: 100%;
+        text-align: center;
+        border-collapse: collapse;
+        margin: 20px 0;
+        background: white;
+        overflow: hidden;
+        border-radius: 8px;
+        border: 1px solid #ffccd5;
+      }
+
+      table th {
+        padding: 12px;
+      }
+      table td {
+        padding: 10px;
+        border: 1px solid #fff0f3;
+      }
+
+      /* GRID VIDEO */
+      .video-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+        gap: 25px;
+      }
+
+      .video-card {
+        background: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(255, 77, 109, 0.1);
+        border: 1px solid #ffccd5;
+      }
+
+      .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+      }
+
+      .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .video-info {
+        padding: 15px;
+        text-align: center;
+        background: #fff5f8;
+      }
+      .video-info h4 {
+        margin: 0;
+        color: #590d22;
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 60px;
+        padding: 30px;
+        border-top: 2px solid #ffccd5;
+        color: #a4133c;
+        font-size: 0.95em;
+        background-color: #fff0f3;
+        border-radius: 0 0 15px 15px;
+      }
+
+      @media (max-width: 768px) {
+        .video-grid {
+          grid-template-columns: 1fr;
+        }
+        nav {
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+          border-radius: 20px;
+        }
+        .logo-box img {
+          width: 95%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Multiplexer & Demultiplexer</h1>
+        <p>Proyek Teknik Digital: Sistem Seleksi dan Distribusi Data</p>
+      </header>
+
+      <div class="logo-box">
+        <img
+          src="asset/DiagramMuxDemux.png"
+          alt="Diagram Konsep MUX dan DEMUX"
+        />
+      </div>
+
+      <nav>
+        <a href="#pengertian">Pengertian</a>
+        <a href="#cara-kerja">Prinsip Kerja</a>
+        <a href="#tutorial">Video Tutorial</a>
+        <a href="#kontak">Anggota Kelompok</a>
+      </nav>
+
+      <div id="pengertian" class="section">
+        <h2>Apa itu MUX & DEMUX?</h2>
+        <div class="content-box">
+          <p>
+            Dalam elektronika digital, Multiplexer dan Demultiplexer bekerja
+            secara berlawanan untuk mengelola aliran data:
+          </p>
+          <ul class="text-justify">
+            <li>
+              <strong>Multiplexer (MUX):</strong> Multiplexer, atau sering
+              disingkat MUX, adalah perangkat elektronika digital yang berfungsi
+              sebagai sakelar pemilih data otomatis. Dalam hierarki logika
+              digital, MUX dikategorikan sebagai perangkat n-to-1, yang berarti
+              ia memiliki banyak jalur input tetapi hanya memiliki satu jalur
+              output tunggal. Fungsi utamanya adalah menerima berbagai sinyal
+              digital dari sumber yang berbeda dan memilih salah satu dari
+              sinyal tersebut untuk diteruskan ke saluran keluar pada waktu
+              tertentu. Secara garis besarnya, Multiplexer berperan sebagai
+              pemilih (Selector). Ia menggabungkan banyak jalur input menjadi
+              satu output.
+            </li>
+            <br />
+            <li>
+              <strong>Demultiplexer (DEMUX):</strong> Demultiplexer adalah
+              kebalikan logis dari Multiplexer. Jika MUX mengumpulkan data, maka
+              DEMUX berfungsi sebagai penyalur atau distributor data digital.
+              Perangkat ini dikategorikan sebagai 1-to-n, yang berarti ia
+              menerima data dari satu jalur input utama dan menyebarkannya ke
+              salah satu dari banyak jalur output yang tersedia. DEMUX
+              memastikan bahwa data yang dikirim melalui satu jalur transmisi
+              dapat sampai ke tujuan atau perangkat penerima yang spesifik dan
+              tepat. Secara garis besarnya, Demultiplexer berperan sebagai
+              penyalur (Distributor). Ia memecah satu input kembali menjadi
+              banyak output.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="cara-kerja" class="section">
+        <h2>Prinsip Kerja & Tabel Kebenaran</h2>
+        <div class="content-box">
+          <h3>1. Multiplexer (MUX 4-ke-1)</h3>
+          <p class="text-justify">
+            Multiplexer sangat krusial dalam sistem pemrosesan data dan
+            komunikasi karena memungkinkan pengiriman informasi dari berbagai
+            sumber melalui satu kabel atau frekuensi saja, yang secara teknis
+            disebut sebagai teknik multiplexing. Memilih input (D0 - D3)
+            berdasarkan nilai pada Select Lines ($S_1, S_0$).
+          </p>
+
+          <table>
+            <thead>
+              <tr style="background-color: #ff758f; color: white">
+                <th>Select S1</th>
+                <th>Select S0</th>
+                <th>Output (Y)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>
+                  Data dari Input <b>D<sub>0</sub></b>
+                </td>
+              </tr>
+              <tr style="background-color: #fff0f3">
+                <td>0</td>
+                <td>1</td>
+                <td>
+                  Data dari Input <b>D<sub>1</sub></b>
+                </td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>
+                  Data dari Input <b>D<sub>2</sub></b>
+                </td>
+              </tr>
+              <tr style="background-color: #fff0f3">
+                <td>1</td>
+                <td>1</td>
+                <td>
+                  Data dari Input <b>D<sub>3</sub></b>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br />
+
+          <h3>2. Demultiplexer (DEMUX 1-ke-4)</h3>
+          <p>Menyalurkan satu input ke salah satu output (Y0 - Y3).</p>
+
+          <table>
+            <thead>
+              <tr style="background-color: #c9184a; color: white">
+                <th>Select S1</th>
+                <th>Select S0</th>
+                <th>Jalur Output Aktif</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>
+                  Disalurkan ke <b>Y<sub>0</sub></b>
+                </td>
+              </tr>
+              <tr style="background-color: #fff0f3">
+                <td>0</td>
+                <td>1</td>
+                <td>
+                  Disalurkan ke <b>Y<sub>1</sub></b>
+                </td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>
+                  Disalurkan ke <b>Y<sub>2</sub></b>
+                </td>
+              </tr>
+              <tr style="background-color: #fff0f3">
+                <td>1</td>
+                <td>1</td>
+                <td>
+                  Disalurkan ke <b>Y<sub>3</sub></b>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="tutorial" class="section">
+        <h2>Koleksi Video Referensi</h2>
+        <div class="video-grid">
+          <div class="video-card">
+            <div class="video-container">
+              <iframe
+                src="https://www.youtube.com/embed/VZ-IQ7XHQSI"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="video-info"><h4>Konsep Dasar MUX & DEMUX</h4></div>
+          </div>
+          <div class="video-card">
+            <div class="video-container">
+              <iframe
+                src="https://www.youtube.com/embed/mtIYkAzOO_U"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="video-info"><h4>Simulasi Rangkaian Digital</h4></div>
+          </div>
+        </div>
+      </div>
+
+      <footer id="kontak">
+        Disusun Oleh:<br /><br />
+        <strong>Aimee Jehova Jireh (202431076)</strong><br />
+        <strong>Anggia Putri Tesalonika Pane (202431162)</strong><br /><br />
+        Tugas Mata Kuliah Teknik Digital Kelas E &copy; 2026
+      </footer>
+    </div>
+  </body>
+</html>
